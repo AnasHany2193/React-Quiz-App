@@ -1,13 +1,17 @@
 import Main from "./Main";
 import Error from "./Error";
+import Timer from "./Timer";
 import Header from "./Header";
 import Loader from "./Loader";
+import Footer from "./Footer";
 import Progress from "./Progress";
 import Question from "./Question";
 import NextButton from "./NextButton";
 import StartScreen from "./StartScreen";
 import FinishedScreen from "./FinishedScreen";
 import { useEffect, useReducer } from "react";
+
+const SECS_PER_QUESTION = 30;
 
 const initialState = {
   index: 0,
@@ -16,6 +20,7 @@ const initialState = {
   highscore: 0,
   questions: [],
   status: "loading", // 'error', 'loading', 'ready', 'active', 'finished'
+  secondsRemaining: null,
 };
 
 function reducer(state, action) {
@@ -25,7 +30,11 @@ function reducer(state, action) {
     case "dataReceived":
       return { ...state, questions: action.payload, status: "ready" };
     case "start":
-      return { ...state, status: "active" };
+      return {
+        ...state,
+        status: "active",
+        secondsRemaining: state.questions.length * SECS_PER_QUESTION,
+      };
     case "newAnswer":
       const question = state.questions.at(state.index);
       return {
@@ -53,15 +62,22 @@ function reducer(state, action) {
         highscore:
           state.points > state.highscore ? state.points : state.highscore,
       };
-
+    case "tick":
+      return {
+        ...state,
+        secondsRemaining: state.secondsRemaining - 1,
+        status: state.secondsRemaining === 0 ? "finished" : state.status,
+      };
     default:
       throw new Error("Unknown Action!");
   }
 }
 
 function App() {
-  const [{ questions, status, index, answer, points, highscore }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { questions, status, index, answer, points, highscore, secondsRemaining },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const numQuestions = questions.length;
   const maxPossiblePoints = questions.reduce(
@@ -82,10 +98,13 @@ function App() {
 
       <Main>
         {status === "loading" && <Loader />}
+
         {status === "error" && <Error />}
+
         {status === "ready" && (
           <StartScreen numQuestions={numQuestions} dispatch={dispatch} />
         )}
+
         {status === "active" && (
           <>
             <Progress
@@ -95,17 +114,23 @@ function App() {
               numQuestions={numQuestions}
               maxPossiblePoints={maxPossiblePoints}
             />
+
             <Question
               answer={answer}
               dispatch={dispatch}
               question={questions[index]}
             />
-            <NextButton
-              index={index}
-              answer={answer}
-              dispatch={dispatch}
-              numQuestions={numQuestions}
-            />
+
+            <Footer>
+              <Timer dispatch={dispatch} secondsRemaining={secondsRemaining} />
+
+              <NextButton
+                index={index}
+                answer={answer}
+                dispatch={dispatch}
+                numQuestions={numQuestions}
+              />
+            </Footer>
           </>
         )}
         {status === "finished" && (
