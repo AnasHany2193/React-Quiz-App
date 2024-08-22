@@ -257,3 +257,118 @@ progress {
   font-size: inherit;
   padding: 0.8rem;
 }
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  body {
+    padding: 2rem;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .app-header {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 4.5rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.8rem;
+  }
+
+  .progress {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+  }
+
+  .options {
+    margin-bottom: 2.4rem;
+  }
+
+  .result {
+    font-size: 1.8rem;
+    padding: 1.6rem 0;
+  }
+
+  .loader-container {
+    margin-top: 3rem;
+  }
+
+  .timer {
+    font-size: 1.6rem;
+    padding: 1.2rem 2.4rem;
+  }
+
+  .counter {
+    margin: 4rem;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1.6rem;
+  }
+
+  .app-header {
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    font-size: 3.6rem;
+  }
+
+  h2 {
+    font-size: 2.6rem;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }
+
+  h4 {
+    font-size: 1.6rem;
+  }
+
+  .progress {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    font-size: 1.6rem;
+    padding: 0.8rem 1.6rem;
+  }
+
+  .result {
+    font-size: 1.6rem;
+    padding: 1.2rem 0;
+  }
+
+  .timer {
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+  }
+
+  .counter {
+    margin: 2rem;
+    font-size: 1.6rem;
+  }
+}
