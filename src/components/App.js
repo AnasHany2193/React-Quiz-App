@@ -86,7 +86,9 @@ function App() {
   );
 
   useEffect(() => {
-    fetch("http://localhost:5000/questions")
+    fetch(
+      "https://raw.githubusercontent.com/AnasHany2193/React-Quiz-App/main/data/questions.json"
+    )
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) => dispatch({ type: "dataFailed" }));
