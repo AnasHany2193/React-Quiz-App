@@ -87,7 +87,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/AnasHany2193/React-Quiz-App/main/data/questions.json"
+      "https://raw.githubusercontent.com/AnasHany219/data/main/react-quize-app-data/questions.json"
     )
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
