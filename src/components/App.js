@@ -2,14 +2,14 @@ import Main from "./Main";
 import Error from "./Error";
 import Header from "./Header";
 import Loader from "./Loader";
+import Question from "./Question";
 import StartScreen from "./StartScreen";
 import { useEffect, useReducer } from "react";
 
 const initialState = {
+  index: 0,
   questions: [],
-
-  // 'error', 'loading', 'ready', 'active', 'finished'
-  status: "loading",
+  status: "loading", // 'error', 'loading', 'ready', 'active', 'finished'
 };
 
 function reducer(state, action) {
@@ -18,6 +18,8 @@ function reducer(state, action) {
       return { ...state, status: "error" };
     case "dataReceived":
       return { ...state, questions: action.payload, status: "ready" };
+    case "start":
+      return { ...state, status: "active" };
 
     default:
       throw new Error("Unknown Action!");
@@ -25,7 +27,10 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status, index }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   const numQuestions = questions.length;
 
@@ -43,7 +48,10 @@ function App() {
       <Main>
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
-        {status === "ready" && <StartScreen numQuestions={numQuestions} />}
+        {status === "ready" && (
+          <StartScreen numQuestions={numQuestions} dispatch={dispatch} />
+        )}
+        {status === "active" && <Question question={questions[index]} />}
       </Main>
     </div>
   );
