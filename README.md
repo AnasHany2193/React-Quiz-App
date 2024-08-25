@@ -1,90 +1,70 @@
-# 🎉 React Quiz App
+# 📚 React Quiz App
 
-Welcome to the **React Quiz App**! This is a fun and interactive quiz application built with React. Test your knowledge and challenge yourself with a variety of questions!
+Welcome to the **React Quiz App**! This app allows users to test their knowledge through a series of interactive quizzes.
 
-## 🌟 Features
+## ✨ Features
 
-- **Interactive Quiz**: Answer questions and get instant feedback.
-- **Progress Tracking**: Keep track of your progress throughout the quiz.
-- **Timer**: Challenge yourself with a built-in timer.
-- **Responsive Design**: Works seamlessly on both mobile and desktop devices.
-
-## 🚀 Installation
-
-To get started with the React Quiz App, follow these steps:
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/AnasHany2193/React-Quiz-App.git
-   ```
-
-2. **Navigate to the Project Directory:**
-
-   ```bash
-   cd React-Quiz-App
-   ```
-
-3. **Install Dependencies:**
-
-   ```bash
-   npm install
-   ```
-
-4. **Start the Development Server:**
-
-   ```bash
-   npm start
-   ```
-
-   Your app should now be running at `http://localhost:3000`.
-
-## 📦 Usage
-
-Once the development server is running, you can open your browser and navigate to `http://localhost:3000` to start playing the quiz.
+- 🎯 **Interactive Quiz Experience**: Engage with multiple-choice questions.
+- 🧠 **Context API Integration**: Efficient state management across the app.
+- 🔍 **Real-Time Feedback**: Immediate responses after each question.
+- 📊 **Score Tracking**: Keep track of your progress and see your results.
 
 ## 🌐 Live Demo
 
 Check out the live demo of the React Quiz App here: [React Quiz App Demo](https://the-react-quiz-2193.netlify.app/)
 
-## 🛠️ Technologies Used
+## 🚀 Getting Started
 
-- **React**: For building the user interface.
-- **CSS**: For styling the application.
-- **Netlify**: For deploying the live demo.
+To get a local copy up and running, follow these steps:
+
+### Prerequisites
+
+- 🖥️ **Node.js**: Ensure you have Node.js installed.
+- 📦 **NPM**: Comes with Node.js. Ensure it is up-to-date.
+
+### Installation
+
+1. **Clone the repo**:
+   ```bash
+   git clone https://github.com/AnasHany2193/React-Quiz-App.git
+   ```
+2. **Navigate to the project directory**:
+   ```bash
+   cd React-Quiz-App
+   ```
+3. **Install NPM packages**:
+   ```bash
+   npm install
+   ```
+
+## 🛠️ Usage
+
+1. **Start the development server**:
+   ```bash
+   npm start
+   ```
+2. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## 🔄 Recent Changes
+
+- ♻️ **Refactored** to use the Context API for improved state management.
+- 🔄 **Renamed** duplicate `src` folder to `src-no-context`.
+
+## 📂 Project Structure
+
+- **`src-no-context/`**: Original codebase without Context API.
+- **`src/`**: Updated codebase with Context API for state management.
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you have suggestions or improvements, please fork the repository and submit a pull request.
+Contributions are what make the open-source community such an amazing place! Any contributions you make are **greatly appreciated**.
 
-1. **Fork the Repository**.
-2. **Create a Feature Branch**:
+1. **Fork the Project**.
+2. **Create your Feature Branch** (`git checkout -b feature/AmazingFeature`).
+3. **Commit your Changes** (`git commit -m 'Add some AmazingFeature'`).
+4. **Push to the Branch** (`git push origin feature/AmazingFeature`).
+5. **Open a Pull Request**.
 
-   ```bash
-   git checkout -b feature/YourFeatureName
-   ```
+## 📧 Contact
 
-3. **Commit Your Changes**:
-
-   ```bash
-   git commit -m "Add a descriptive message about your changes"
-   ```
-
-4. **Push to the Branch**:
-
-   ```bash
-   git push origin feature/YourFeatureName
-   ```
-
-5. **Create a Pull Request**.
-
-## 📞 Contact
-
-For any questions or feedback, feel free to reach out:
-
-- **Email**: anashany2193@gamil.com
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/anashany219/)
-
----
-
-Thank you for checking out the React Quiz App! 🎉
+Anas Hany - [LinkedIn](https://www.linkedin.com/in/anashany219/) - anashany219@gmail.com
